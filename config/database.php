@@ -59,7 +59,8 @@ return [
             'strict' => true,
             'engine' => null,
         ],
-    'mysql_test' => [
+
+    'mysql_tests' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),

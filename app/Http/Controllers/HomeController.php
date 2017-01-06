@@ -3,26 +3,19 @@
 namespace Chatty\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function home()
     {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('home');
+        if (auth()->check()){
+            return view('home');
+        }
+        //test for login form and logiin session
+        //same for register
+        //guest for welcome
+        //auth middeware
+        return view('welcome');
     }
 }

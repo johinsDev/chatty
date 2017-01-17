@@ -24,7 +24,7 @@ class RegisterUser extends FeatureTestCase
             'email'   => 'johandbz@gmail.com',
         ]);
 
-        //Test a user is redirect to home;
+        //Test a users is redirect to home;
         $this->seePageIs('/')
             ->see('johins');
     }
@@ -38,10 +38,10 @@ class RegisterUser extends FeatureTestCase
     //prueba de recordarme
     //test
     /*
-     *    $this->actingAs($user)
+     *    $this->actingAs($users)
              ->withSession(['foo' => 'bar'])
              ->visit('/')
-             ->see('Hello, '.$user->name);
+             ->see('Hello, '.$users->name);
      * */
 
     function test_register_user_form_validation()
@@ -49,7 +49,7 @@ class RegisterUser extends FeatureTestCase
         $this->visit('/register')
             ->press('Register')
             ->seePageIs(route('/register'))
-            ->seeErrors([
+            ->seeErrors([   
                 'username'     => 'The username field is required.',
                 'email'   => 'The email field is required.',
                 'password'   => 'The password field is required.',

@@ -23,8 +23,10 @@
 <body>
     <div id="app">
         @include('partials._nav')
-        @include('partials._alerts')
-        @yield('content')
+        <div class="container">
+            @include('partials._alerts')
+            @yield('content')
+        </div>
     </div>
 
     <!-- Scripts -->

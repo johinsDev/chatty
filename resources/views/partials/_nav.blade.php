@@ -25,12 +25,12 @@
                         <a href="#">Timeline</a>
                     </li>
                     <li>
-                        <a href="">Friends</a>
+                        <a href="{{ route('friends.index') }}">Friends</a>
                     </li>
                 </ul>
-                <form class="navbar-form navbar-left" role="search">
+                <form class="navbar-form navbar-left" role="search" action="{{ route('search.results') }}">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Find Peopel">
+                        <input type="text" class="form-control" placeholder="Find Peopel" name="query">
                     </div>
                     <button type="submit" class="btn btn-info">Search</button>
                 </form>
@@ -43,13 +43,13 @@
                     <li><a href="{{ url('/register') }}">Register</a></li>
                 @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <a href="{{ route('users.show' , [auth()->user()->username]) }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->NameOrUsername }} <span class="caret"></span>
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="">Update Profile</a>
+                                <a href="{{ route('users.edit' , [auth()->user()->username]) }}" >Update Profile</a>
                             </li>
                             <li>
                                 <a href="{{ url('/logout') }}"
